@@ -7,7 +7,7 @@
 header {
     width: 100%;
     height: 100vh;
-    background: url(background.png);
+    background: linear-gradient(rgba(45, 99, 237, 0.7),rgba(46, 94, 215, 0.1),rgba(122, 149, 218, 0.1)), url(background.png);
     background-size: cover;
     font-family: sans-serif;
 }
