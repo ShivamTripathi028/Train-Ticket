@@ -26,7 +26,7 @@ header {
     font: 1.3em sans-serif;
 }
 .t1 {
-    color: rgb(22, 7, 105,0.7);
+    color: rgb(22, 7, 105);
 }
 
 .menu a {
@@ -45,3 +45,26 @@ header {
     border-radius: 20px;
 }
 
+.mid-text {
+    max-width: 650px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    
+}
+
+.mid-text span {
+    font-size: 45px;
+    letter-spacing: 1px;
+    color: rgb(243, 99, 15);
+}
+
+
+.mid-text h1 {
+    padding-top: 0px;
+    font-size: 35px;
+    letter-spacing: 1px;
+    background: linear-gradient(rgb(237, 220, 34, 1),rgb(237, 220, 34, 0.5),rgb(237, 220, 34, 0.1));
+}
