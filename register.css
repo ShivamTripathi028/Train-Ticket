@@ -67,6 +67,7 @@ body {
   width: 50%;
   font-family: 'Fira Mono', monospace;
   transition: 0.4s;
+  cursor: pointer;
 }
 
 .form-container form .form-btn:hover {
