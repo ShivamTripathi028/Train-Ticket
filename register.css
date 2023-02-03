@@ -11,22 +11,6 @@ body {
   background-size: cover;
 }
 
-/* .form-container {
-  width: 30%;
-  height:70vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  background: rgba(238, 238, 238, 0.207);
-  border: 1px solid rgba(238, 238, 238, 0.207);
-  border-radius: 10px;
-} */
-
 .form-container {
   width: 30%;
   height: 55vh;
@@ -51,6 +35,7 @@ body {
 .form-container h3 {
   font-size: 30px;
   font-family: 'Fira Mono', monospace;
+  user-select: none;
 }
 
 .form-container input {
@@ -85,6 +70,7 @@ input::-webkit-inner-spin-button {
 .form-container p {
   font-size: 20px;
   color: rgb(255, 255, 255);
+  user-select: none;
 }
 
 .form-container p a {
