@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    width: 100%;
+    height: 100vh;
+    background-image: url(bgimg.webp);
+    background-size: cover;
+  }
+
+  .login-container {
+    width: 30%;
+    height: 50vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    justify-content: center;
+    text-align: center;
+  }
+
+  .login-container .input-box {
+    width: 100%;
+    padding: 30px;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.068);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 1);
+    border-radius: 10px;
+  }
+
+  .login-container .input-box input {
+    color: black;
+  width: 100%;
+  padding: 10px 15px;
+  margin: 10px 0px;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.333);
+  }
+
+  .login-container h3 {
+    font-size: 30px;
+    font-family: 'Fira Mono', monospace;
+    user-select: none;
+  }
+
+  .login-container .input-box .login-btn {
+    width: 50%;
+    font-family: 'Fira Mono', monospace;
+    transition: 0.4s;
+    cursor: pointer;
+  }
+
+  .login-container .login-btn :hover {
+    letter-spacing: 0.1em;
+  }
+
+  .login-container p {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    user-select: none;
+  }
+  
+  .login-container p a {
+    font-size: 20px;
+    text-decoration: none;
+    color: rgb(246, 214, 72);
+  }
