@@ -1,39 +1,61 @@
 <?php
+if (isset($_POST['submit'])) {
 
-//INDICATOR FOR SUCCESS TEMPLATE
-$SUCCESS_MSG = false;
+    //CONNECTING TO THE DB
+    include 'dbconnect.php';
 
-//CONNECTION TO THE DB DONE
-include 'dbconnect.php';
+    //STORING FORM VALUES IN VARIABLE
+    $NAME = $_POST['name'];
+    $EMAIL = $_POST['email'];
+    $PHNO = $_POST['phno'];
+    $PASSWORD = $_POST['password'];
+    $CPASSWORD = $_POST['cpassword'];
+    $USERNAME_TAKEN = mysqli_query($con, "SELECT * FROM user_data WHERE name='$NAME'");
+    $USER_EXISTS = mysqli_query($con, "SELECT * FROM user_data WHERE email='$EMAIL'");
 
-//STORING FORM VALUES IN VARIABLE
-$NAME = $_POST['name'];
-$EMAIL = $_POST['email'];
-$PHNO = $_POST['phno'];
-$PASSWORD = $_POST['password'];
-$CPASSWORD = $_POST['cpassword'];
-$USER_EXISTS = false;
-
-
-//DATA INSERTION DONE HERE
-if(($PASSWORD == $CPASSWORD) && $USER_EXISTS == false) {
-    $sql = "INSERT INTO `user_data` (`name`, `email`, `phone`, `password`, `date`) VALUES ('$NAME', '$EMAIL', '$PHNO', '$PASSWORD', current_timestamp() )";
-    $result = mysqli_query($con,$sql);
-
-
-        //IF DATA IS SUBMITTED IN THE DB, THE VALUE INDICATOR BECOMES TRUE
-        if($result == true) {
-            $SUCCESS_MSG = true;      
+    if ($USER_EXISTS && (mysqli_num_rows($USER_EXISTS) > 0)) {
+        echo "<script>alert('User already exists!');</script>";
+    } elseif ($USERNAME_TAKEN && (mysqli_num_rows($USERNAME_TAKEN) > 0)) {
+        echo "<script>alert('Username is already taken, try something else!');</script>";
+    } else {
+        if ($PASSWORD == $CPASSWORD) {
+            $sql = "INSERT INTO `user_data` (`name`, `email`, `phone`, `password`, `date`) VALUES ('$NAME', '$EMAIL', '$PHNO', '$PASSWORD', current_timestamp() )";
+            $result = mysqli_query($con, $sql);
+            echo "<script>alert('User registered successfully!');</script>";
+        } else {
+            echo "<script>alert('Passwords do not match!');</script>";
         }
-
+    }
 }
 ?>
 
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-//SUCCESS TEMPLATE IS DISPLAYED
-if($SUCCESS_MSG) {
-    include 'success.html';
-}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&display=swap" rel="stylesheet">
+    <title>Register Form</title>
+</head>
 
-?>
+<body>
+    <div class="form-container">
+        <form action="register.php" method="post">
+            <h3>Sign Up</h3>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <input type="number" id="phno" name="phno" placeholder="Enter your phone number" required>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <input type="password" id="password" name="cpassword" placeholder="Confirm your password" required>
+            <input type="submit" name="submit" value="Register" class="form-btn">
+        </form>
+        <p>Already have an account? <a href="login.html">Login Now</a></p>
+    </div>
+</body>
+
+</html>
