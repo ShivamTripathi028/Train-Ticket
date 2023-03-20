@@ -55,8 +55,8 @@
     cursor: pointer;
   }
 
-  .login-container .login-btn :hover {
-    letter-spacing: 0.1em;
+    .login-container .input-box .login-btn:hover {
+    letter-spacing: 0.125em;
   }
 
   .login-container p {
