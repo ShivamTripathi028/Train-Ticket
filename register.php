@@ -23,6 +23,7 @@ if (isset($_POST['submit'])) {
         $MESSAGE = 'Username is already taken';
     } else {
         if ($PASSWORD == $CPASSWORD) {
+            $PASSWORD = md5($PASSWORD);
             $sql = "INSERT INTO `user_data` (`name`, `email`, `phone`, `password`, `date`) VALUES ('$NAME', '$EMAIL', '$PHNO', '$PASSWORD', current_timestamp() )";
             $result = mysqli_query($con, $sql);
             $MESSAGE = 'User registered successfully!';

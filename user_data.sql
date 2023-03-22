@@ -16,7 +16,7 @@ CREATE TABLE `user_data` (
 
 -- INSERTING SOME VALUES INITIALLY
 INSERT INTO `user_data` (`srno`, `name`, `email`, `phone`, `password`, `date`) VALUES
-(1, 'Shivam Tripathi', 'shivamamartripathi2004@gmail.com', '7977300083', 'Shivam123', '2023-02-05 22:58:18');
+(1, 'Shivam Tripathi', 'shivamamartripathi2004@gmail.com', '7977300083', 'a6a32d191c010338f46ea55d3883f17d', '2023-02-05 22:58:18');
 
 
 
