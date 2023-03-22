@@ -1,4 +1,8 @@
 <?php
+//MESSAGE DISPLAYING
+global $MESSAGE;
+$MESSAGE = '';
+
 if (isset($_POST['submit'])) {
 
     //CONNECTING TO THE DB
@@ -14,16 +18,16 @@ if (isset($_POST['submit'])) {
     $USER_EXISTS = mysqli_query($con, "SELECT * FROM user_data WHERE email='$EMAIL'");
 
     if ($USER_EXISTS && (mysqli_num_rows($USER_EXISTS) > 0)) {
-        echo "<script>alert('User already exists!');</script>";
+        $MESSAGE='User Already Exists!';
     } elseif ($USERNAME_TAKEN && (mysqli_num_rows($USERNAME_TAKEN) > 0)) {
-        echo "<script>alert('Username is already taken, try something else!');</script>";
+        $MESSAGE = 'Username is already taken';
     } else {
         if ($PASSWORD == $CPASSWORD) {
             $sql = "INSERT INTO `user_data` (`name`, `email`, `phone`, `password`, `date`) VALUES ('$NAME', '$EMAIL', '$PHNO', '$PASSWORD', current_timestamp() )";
             $result = mysqli_query($con, $sql);
-            echo "<script>alert('User registered successfully!');</script>";
+            $MESSAGE = 'User registered successfully!';
         } else {
-            echo "<script>alert('Passwords do not match!');</script>";
+            $MESSAGE = 'Passwords did not match!';
         }
     }
 }
@@ -52,6 +56,9 @@ if (isset($_POST['submit'])) {
             <input type="number" id="phno" name="phno" placeholder="Enter your phone number" required>
             <input type="password" id="password" name="password" placeholder="Enter your password" required>
             <input type="password" id="password" name="cpassword" placeholder="Confirm your password" required>
+            <p class="error" style="color: rgba(247, 19, 19, 0.874); font-size: large; display: block;">
+                <?php echo $MESSAGE; ?>
+            </p>            
             <input type="submit" name="submit" value="Register" class="form-btn">
         </form>
         <p>Already have an account? <a href="login.html">Login Now</a></p>
