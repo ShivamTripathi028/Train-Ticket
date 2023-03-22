@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     include 'dbconnect.php';
 
     //STORING FORM VALUES IN VARIABLE
-    $NAME = $_POST['name'];
+    $NAME = trim($_POST['name']);
     $EMAIL = $_POST['email'];
     $PHNO = $_POST['phno'];
     $PASSWORD = $_POST['password'];
