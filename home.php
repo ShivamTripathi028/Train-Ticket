@@ -5,6 +5,11 @@ if (!isset($_SESSION['user'])) {
     header("Location: login.php");
 }
 
+include 'dbconnect.php';
+$SQL = "SELECT * FROM station WHERE id > 0";
+$RESULT_FROM = mysqli_query($con, $SQL);
+$RESULT_TO = mysqli_query($con, $SQL);
+
 ?>
 
 <!DOCTYPE html>
@@ -28,30 +33,31 @@ if (!isset($_SESSION['user'])) {
 </head>
 
 <body onload="javascript:getQuote()">
+
     <div class="parent">
+        <div class="logout">
+            <a href="logout.php">Logout</a>
+        </div>
         <div class="search">
             <div class="search-box">
                 <div class="inner">
                     <h2 class="heading">Book Ticket</h2>
-                    <div style="
-                max-width: 450px;
-                min-width: 450px;
-                display: flex;
-                justify-content: space-between;
-              ">
-                        <select name="from" id="from" style="width: 220px">
+                    <form action="home.php" method="post"></form>
+                    <div class="drop">
+                        <select name="from" id="from" style="width: 200px">
                             <option disabled selected>From</option>
+                            <?php while ($FROM = mysqli_fetch_array($RESULT_FROM, MYSQLI_ASSOC)) : ?>
+                                <option value="<?php echo $FROM["id"] ?>"><?php echo $FROM["name"] ?></option>
+                            <?php endwhile ?>
                         </select>
-                        <select name="from" id="from" style="width: 210px">
+                        <select name="to" id="to" style="width: 200px">
                             <option disabled selected>To</option>
+                            <?php while ($TO = mysqli_fetch_array($RESULT_TO, MYSQLI_ASSOC)) : ?>
+                                <option value="<?php echo $TO["id"] ?>"><?php echo $TO["name"] ?></option>
+                            <?php endwhile ?>
                         </select>
                     </div>
-                    <div style="
-                max-width: 450px;
-                min-width: 450px;
-                display: flex;
-                justify-content: space-between;
-              ">
+                    <div class="drop">
                         <input type="date" id="data" placeholder="Date" />
                         <select name="coach" id="coach" style="width: 200px">
                             <option disabled selected>Select class:</option>
