@@ -44,7 +44,7 @@ if (isset($_POST['login'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Login Page</title>
 </head>
 
 <body>
@@ -53,14 +53,17 @@ if (isset($_POST['login'])) {
             <div class="login">
                 <div class="input">
                     <div class="login-box">
-                        <form action="" method="post">
+                        <div class="image">
+                            <a href="index.html"><img src="homeIcon.png" alt="Home Icon"></a>
+                        </div>
+                        <form action="login.php" method="post">
                             <h3>Login</h3>
                             <p>Don't have an account? <a class="link" href="register.php">Create one</a></p>
-                            <input type="email" class="text-input" name="uname" id="uname" placeholder="Enter your email">
+                            <input type="email" class="text-input" name="uemail" id="uname" placeholder="Enter your email">
                             <input type="password" class="text-input" name="upass" id="upass" placeholder="Enter your password">
-                            <input type="submit" value="Login" class="login-btn">
+                            <input type="submit" value="Login" name="login" class="login-btn">
                         </form>
-                        <p class="error"><?php echo $MESSAGE;?></p>
+                        <p class="error"><?php echo $MESSAGE; ?></p>
                     </div>
                 </div>
             </div>
