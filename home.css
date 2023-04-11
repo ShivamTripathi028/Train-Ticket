@@ -9,6 +9,7 @@
   }
 }
 
+
 * {
   padding: 0;
   margin: 0;
@@ -126,7 +127,9 @@ select {
   width: fit-content;
   height: auto;
   text-align: center;
-  color: aliceblue;
+  font-family: 'Righteous', cursive;
+  letter-spacing: 2px;
+  color: rgb(217, 194, 19);
 }
 
 .drop {
