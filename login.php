@@ -60,7 +60,7 @@ if (isset($_POST['login'])) {
                             <input type="password" class="text-input" name="upass" id="upass" placeholder="Enter your password">
                             <input type="submit" value="Login" class="login-btn">
                         </form>
-                        <p class="error">The error message will be displayed here</p>
+                        <p class="error"><?php echo $MESSAGE;?></p>
                     </div>
                 </div>
             </div>
