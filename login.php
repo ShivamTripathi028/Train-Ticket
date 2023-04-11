@@ -37,30 +37,34 @@ if (isset($_POST['login'])) {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login-1.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&display=swap" rel="stylesheet">
-    <title>Login Page</title>
+    <title>Document</title>
 </head>
 
 <body>
-    <div class="login-container">
-        <div class="input-box">
-            <form action="login.php" method="post">
-                <h3>Login</h3>
-                <input type="email" name="uemail" id="uemail" placeholder="Enter your email" required>
-                <input type="password" name="upass" id="upass" placeholder="Enter your password" required>
-                <p class="error" style="color: rgba(247, 19, 19, 0.874); font-size: large; display: block;">
-                    <?php echo $MESSAGE; ?>
-                </p>
-                <input type="submit" name="login" value="Login" class="login-btn">
-            </form>
+    <div class="parent">
+        <div class="child">
+            <div class="login">
+                <div class="input">
+                    <div class="login-box">
+                        <form action="" method="post">
+                            <h3>Login</h3>
+                            <p>Don't have an account? <a class="link" href="register.php">Create one</a></p>
+                            <input type="email" class="text-input" name="uname" id="uname" placeholder="Enter your email">
+                            <input type="password" class="text-input" name="upass" id="upass" placeholder="Enter your password">
+                            <input type="submit" value="Login" class="login-btn">
+                        </form>
+                        <p class="error">The error message will be displayed here</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p>Don't have an account? <a href="register.php">Create one</a></p>
     </div>
 </body>
 
