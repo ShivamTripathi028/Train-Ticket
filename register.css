@@ -1,80 +1,130 @@
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
-body {
+.parent {
+  background-image: linear-gradient(#32678d, #7fbfec);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100vh;
+}
+
+.child {
+  width: 85%;
+  height: 85vh;
+  border-radius: 20px;
   background-image: url(loginbg.png);
-  background-size: cover;
+  background-size: contain;
+  background-position: right;
 }
 
-.form-container {
-  width: 30%;
-  height: 55vh;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-55%);
-  text-align: center;
+.login {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-image: -webkit-linear-gradient(
+    -10deg,
+    #eaeff2 53%,
+    transparent 40%
+  );
+}
+
+.input {
+  width: 50%;
+  height: 85vh;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  padding-top: 100px;
 }
 
-.form-container form {
-  width: 100%;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.068);
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 1);
-  border-radius: 10px;
-  text-align: center;
-  margin-bottom: 30px;
+.login-box {
+  width: 70%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.form-container h3 {
-  font-size: 30px;
-  font-family: 'Fira Mono', monospace;
+.login-box h3 {
+  font-size: 50px;
+  font-family: "Fira Mono", monospace;
+  font-weight: 900;
   user-select: none;
+  margin-bottom: 20px;
+  transition: 0.5s;
 }
 
-.form-container input {
-  color: black;
+.login-box p {
+  font-size: small;
+  font-family: "Fira Mono", monospace;
+  font-weight: 900;
+  user-select: none;
+  margin-bottom: 30px;
+  transition: 0.4s;
+}
+
+.link {
+  text-decoration: none;
+  color: #3f83b4;
+}
+
+.login-box p:hover {
+  transform: translate(0, -2px);
+}
+
+.login-box input {
+  color: #3f83b4;
   width: 100%;
-  padding: 10px 15px;
+  padding: 5px 10px;
   margin: 10px 0px;
   border-radius: 10px;
   font-size: 20px;
-  background-color: rgba(255, 255, 255, 0.333);  
+  background-color: rgba(255, 255, 255, 0.333);
 }
 
-
-/* To remove up and down arrow key from number input */
-.form-container form input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.form-container form .form-btn {
+.login-box .login-btn {
   width: 50%;
-  font-family: 'Fira Mono', monospace;
+  font-family: "Fira Mono", monospace;
   transition: 0.4s;
+  margin-left: 110px;
   cursor: pointer;
 }
 
-.form-container form .form-btn:hover {
-  letter-spacing: 0.1em;
+.login-box .login-btn:hover {
+  transform: translate(2px, -3px);
 }
 
-.form-container p {
-  font-size: 20px;
-  color: rgb(255, 255, 255);
-  user-select: none;
+.error {
+  color: rgba(247, 19, 19, 0.874);
+  font-size: large;
+  margin-top: 20px;
+  display: block;
 }
 
-.form-container p a {
-  font-size: 20px;
-  text-decoration: none;
-  color: rgb(246, 214, 72);
+.text-input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #3f83b4;
+}
+
+.image {
+  position: absolute;
+  top: 12%;
+  left: 13%;
+}
+
+.image img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.form-btn {
+  max-width: 50%;
+  padding-left: 50px;
 }

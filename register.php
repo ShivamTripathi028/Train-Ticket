@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     $USER_EXISTS = mysqli_query($con, "SELECT * FROM user_data WHERE email='$EMAIL'");
 
     if ($USER_EXISTS && (mysqli_num_rows($USER_EXISTS) > 0)) {
-        $MESSAGE='User Already Exists!';
+        $MESSAGE = 'User Already Exists!';
     } elseif ($USERNAME_TAKEN && (mysqli_num_rows($USERNAME_TAKEN) > 0)) {
         $MESSAGE = 'Username is already taken';
     } else {
@@ -38,31 +38,43 @@ if (isset($_POST['submit'])) {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="register.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&display=swap" rel="stylesheet">
-    <title>Register Form</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="register.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&display=swap" rel="stylesheet" />
+    <title>Register Page</title>
 </head>
 
 <body>
-    <div class="form-container">
-        <form action="register.php" method="post">
-            <h3>Sign Up</h3>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            <input type="number" id="phno" name="phno" placeholder="Enter your phone number" required>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
-            <input type="password" id="password" name="cpassword" placeholder="Confirm your password" required>
-            <p class="error" style="color: rgba(247, 19, 19, 0.874); font-size: large; display: block;">
-                <?php echo $MESSAGE; ?>
-            </p>            
-            <input type="submit" name="submit" value="Register" class="form-btn">
-        </form>
-        <p>Already have an account? <a href="login.php">Login Now</a></p>
+    <div class="parent">
+        <div class="child">
+            <div class="login">
+                <div class="input">
+                    <div class="login-box">
+                        <div class="image">
+                            <a href="index.html"><img src="homeIcon.png" alt="Home Icon" /></a>
+                        </div>
+                        <form action="" method="post">
+                            <h3>Register</h3>
+                            <p>
+                                Already have an account?
+                                <a class="link" href="login.php">Sign in</a>
+                            </p>
+                            <input type="text" class="text-input" id="name" name="name" placeholder="Enter your name" required />
+                            <input type="email" class="text-input" id="email" name="email" placeholder="Enter your email" required />
+                            <input type="number" class="text-input" id="phno" name="phno" placeholder="Enter your phone number" required />
+                            <input type="password" class="text-input" id="password" name="password" placeholder="Enter your password" required />
+                            <input type="password" class="text-input" id="password" name="cpassword" placeholder="Confirm your password" required />
+                            <input type="submit" name="submit" value="Register" class="login-btn">
+                        </form>
+                        <p class="error"><?php echo $MESSAGE; ?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
